@@ -53,9 +53,10 @@ func `$`*(node: Node): string =
     assert false
 
 proc makeElemRoot*(list: seq[Node]): Element =
-    result = new Element
+    result = Element()
     for node in list:
-        result.childList.add(node)
+        if node of Element:
+            result.childList.add(node)
 
 func getAttr*(e: Element; key: string): string {.inline} =
     let factory = e.document.factory
