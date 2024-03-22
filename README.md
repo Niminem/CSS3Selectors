@@ -17,7 +17,7 @@ While this library has been rigorously stress-tested there still may be bugs. Pl
 
 ## Installation
 
-Install from nimble: `nimble install css3Selectors`
+Install from nimble: `nimble install css3selectors`
 
 Alternatively clone via git: `git clone https://github.com/Niminem/CSS3Selectors`
 
@@ -57,7 +57,7 @@ proc querySelectorAll*(root: Node | seq[Node],
 ```
 Get all elements matching `queryString`.
 Raises `ParseError` if parsing of `queryString` fails.
-See [Options](#) for information about the `options` parameter.
+See [Options](https://github.com/Niminem/CSS3Selectors?tab=readme-ov-file#options) for information about the `options` parameter.
 
 `root` parameter is either a `Node` (for HTML documents via `parseHtml`) or a `seq[Node]` (for HTML fragments via `parseHTMLFragment`).
 
@@ -70,7 +70,7 @@ proc querySelector*(root: Node | seq[Node],
 ```
 Get the first element matching `queryString`, or `nil` if no such element exists.
 Raises `ParseError` if parsing of `queryString` fails.
-See [Options](#) for information about the options parameter.
+See [Options](https://github.com/Niminem/CSS3Selectors?tab=readme-ov-file#options) for information about the options parameter.
 
 `root` parameter is either a `Node` (for HTML documents via `parseHtml`) or a `seq[Node]` (for HTML fragments via `parseHTMLFragment`).
 
@@ -82,7 +82,7 @@ proc parseHtmlQuery*(queryString: string,
 ```
 Parses a query for later use.
 Raises `ParseError` if parsing of `queryString` fails.
-See [Options](#) for information about the `options` parameter.
+See [Options](https://github.com/Niminem/CSS3Selectors?tab=readme-ov-file#options) for information about the `options` parameter.
 
 ---
 
