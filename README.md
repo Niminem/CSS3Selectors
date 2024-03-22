@@ -17,7 +17,7 @@ While this library has been rigorously stress-tested there still may be bugs. Pl
 
 ## Installation
 
-Install from nimble (PR pending as of 3/21/24): `nimble install css3Selectors`
+Install from nimble ([PR pending](https://github.com/nim-lang/packages/pull/2839) as of 3/21/24): `nimble install css3Selectors`
 
 Alternatively clone via git: `git clone https://github.com/Niminem/CSS3Selectors`
 
