@@ -1,6 +1,6 @@
 import std/[unittest, streams]
 import pkg/chame/minidom
-import selectors
+import css3selectors
 
 const html = """
 <!DOCTYPE html>
@@ -220,7 +220,7 @@ const html = """
 
 let
     document: Document = parseHtml(newStringStream(html))
-    node: Element = Element(document.childList[1])
+    node: Node = Node(document)
 
 # Must be template so tests happen at the right place
 template checkAttr(el: Element, attrName, attrValue: string) =
@@ -590,7 +590,7 @@ block checkIfGcSafe:
     proc foo =
         let
             document: Document = parseHtml(newStringStream(html))
-            node: Element = Element(document.childList[1])
+            node = Node(document)
         discard node.querySelector("p")
     let bar: proc() {.gcsafe.} = foo
     bar()

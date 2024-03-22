@@ -650,8 +650,9 @@ func validateNth(a, b, nSiblings: int): bool =
 func satisfies(pair: NodeWithContext, demands: seq[Demand]): bool {.raises: [], gcsafe.}
 
 func satisfies(pair: NodeWithContext, demand: Demand): bool =
+    
     if not (pair.node of Element): return false
-    let node = Element(pair.node) # pair.node
+    let node = Element(pair.node)
 
     case demand.kind
     of tkAttributeExists:
@@ -758,7 +759,7 @@ func satisfies(pair: NodeWithContext, demands: seq[Demand]): bool =
             return false
     return true
 
-func exec*(query: Query, node: Element, single: bool): seq[Element] =
+func exec*(query: Query, node: Node, single: bool): seq[Element] =
     ## Execute an already parsed query. If `single = true`,
     ## it will never return more than one element.
   
@@ -798,7 +799,7 @@ func exec*(query: Query, node: Element, single: bool): seq[Element] =
 
             if entry.satisfies(subqueryPart.demands):
                 if searchState[1] + 1 == subquery.len:
-                    result.add Element(entry.node) # fix?
+                    result.add Element(entry.node)
                     if single:
                         return
                     if subqueryCanBeEliminated[searchState[0]]:
@@ -934,7 +935,7 @@ func parseHtmlQuery*(queryString: string,
 
     log "\ninput: \n" & queryString
 
-func querySelector*(root: Element, queryString: string,
+func querySelector*(root: Node, queryString: string,
                     options: set[QueryOption] = DefaultQueryOptions): Element
                     {.raises: [ParseError].} =
     ## Get the first element matching `queryString`,
@@ -960,7 +961,7 @@ func querySelector*(root: seq[Node], queryString: string, # MADE BY ME (supporti
     else:
         nil
 
-func querySelectorAll*(root: Element, queryString: string,
+func querySelectorAll*(root: Node, queryString: string,
                        options: set[QueryOption] = DefaultQueryOptions):
                        seq[Element] {.raises: [ParseError].} =
     ## Get all elements matching `queryString`.

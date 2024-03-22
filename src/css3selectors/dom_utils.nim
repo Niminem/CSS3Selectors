@@ -52,11 +52,16 @@ func `$`*(node: Node): string =
   else:
     assert false
 
-proc makeElemRoot*(list: seq[Node]): Element =
+func makeElemRoot*(list: seq[Node]): Element =
     result = Element()
     for node in list:
         if node of Element:
             result.childList.add(node)
+        else:
+            for n in node.childList: # probably a hack but whatever.. for now ;)
+                if n of Element:
+                    result.childList.add(n)
+                    break
 
 func getAttr*(e: Element; key: string): string {.inline} =
     let factory = e.document.factory

@@ -2,7 +2,7 @@
 
 version       = "0.1.0"
 author        = "Niminem"
-description   = "A Nim CSS Selectors library for the WHATWG standard compliant Chame HTML parser."
+description   = "A Nim CSS Selectors library for the WHATWG standard compliant Chame HTML parser. Query HTML using CSS selectors with Nim just like you can with JavaScript."
 license       = "MIT"
 srcDir        = "src"
 
