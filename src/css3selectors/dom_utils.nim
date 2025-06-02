@@ -63,10 +63,17 @@ func makeElemRoot*(list: seq[Node]): Element =
                     result.childList.add(n)
                     break
 
+#func getAttr*(e: Element; key: string): string {.inline} =
+#    let factory = e.document.factory
+#    for attr in e.attrs:
+#        if factory.atomToStr(attr.name) == key: return attr.value
+#    return ""
+
 func getAttr*(e: Element; key: string): string {.inline} =
     let factory = e.document.factory
+    let atomizedKey = factory.strToAtom(key)
     for attr in e.attrs:
-        if factory.atomToStr(attr.name) == key: return attr.value
+        if attr.name == atomizedKey: return attr.value
     return ""
 
 func getAttrs*(e: Element): seq[string] {.inline.} =
